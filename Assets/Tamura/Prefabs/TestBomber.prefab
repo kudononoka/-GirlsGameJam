@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5942359949479425273}
   - component: {fileID: 656345967}
   - component: {fileID: 656345968}
+  - component: {fileID: 5592715438395700013}
   m_Layer: 0
   m_Name: TestBomber
   m_TagString: Untagged
@@ -116,6 +117,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boom: {fileID: 7972370884072444957}
+--- !u!114 &5592715438395700013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5942359949479425272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9ba567c410c6d4e9f915cc4fc6e233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7972370884072444957
 GameObject:
   m_ObjectHideFlags: 0

@@ -536,29 +536,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameSystem
       objectReference: {fileID: 0}
-    - target: {fileID: 184948664719697848, guid: 3ccc8b0788fad644a8168ca4f17a6cab, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 184948664719697848, guid: 3ccc8b0788fad644a8168ca4f17a6cab, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 184948664719697848, guid: 3ccc8b0788fad644a8168ca4f17a6cab, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 184948665086484316, guid: 3ccc8b0788fad644a8168ca4f17a6cab, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 184948665086484316, guid: 3ccc8b0788fad644a8168ca4f17a6cab, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 184948665086484316, guid: 3ccc8b0788fad644a8168ca4f17a6cab, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ccc8b0788fad644a8168ca4f17a6cab, type: 3}
