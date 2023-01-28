@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
     /// <summary>スポーンマネージャー</summary>
     SpawnManager _spawnM;
 
+
     void Start()
     {
         _target = GameObject.Find(_name);
@@ -33,11 +34,12 @@ public class Enemy : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
         _spawnM = GetComponentInParent<SpawnManager>();
+
         if (_spawnM.Count() >= _speedUpCount)
         {
             _speed = _speed * _speedUp;
             _speedUpCount += 5;
-        }
+        }//スピード決めてる
     }
 
     void Update()
@@ -50,12 +52,16 @@ public class Enemy : MonoBehaviour
     {
         if(collision.gameObject == _target)
         {
+            //ステートをゲームオーバーにした
+            //GameManager gm = FindObjectOfType<GameManager>();
+            //gm.State = GameManager.GameState.UnClear;
+
             {//テスト用
                 _animator.SetBool("Down", true);
                 _speed = 0;
+                _spawnM.CountPuls();
+                _spriteRenderer.sprite = _downSprite;
             }
-            
-            _spawnM.CountPuls();
         }
     }
 

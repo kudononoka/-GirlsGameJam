@@ -28,7 +28,7 @@ public class SpawnManager : MonoBehaviour
         for(int i = 0; i < gameObject.transform.childCount; i++)
         {
             _spawnTransform[i] = gameObject.transform.GetChild(i);
-        }
+        }//子オブジェクトのポジションを配列に入れてる
     }
 
     void Update()
@@ -62,5 +62,5 @@ public class SpawnManager : MonoBehaviour
     public void CountPuls()
     {
         _count++;
-    }
+    }//倒した数の更新
 }
