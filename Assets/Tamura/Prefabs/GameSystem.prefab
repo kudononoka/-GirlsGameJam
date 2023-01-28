@@ -57,7 +57,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184948664719697849}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1555287, y: -0.4480521, z: 0.027307745}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -91,7 +91,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184948665086484317}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.65048194, y: 0.16480237, z: -0.039449286}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -214,6 +214,7 @@ GameObject:
   - component: {fileID: 184948665603807707}
   - component: {fileID: 184948665603807684}
   - component: {fileID: 184948665603807706}
+  - component: {fileID: 6015164215886806515}
   m_Layer: 0
   m_Name: BeamCursor
   m_TagString: Untagged
@@ -314,3 +315,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1303834, y: 1.1334155}
   m_EdgeRadius: 0
+--- !u!114 &6015164215886806515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184948665603807685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9ba567c410c6d4e9f915cc4fc6e233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
