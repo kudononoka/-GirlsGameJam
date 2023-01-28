@@ -10,6 +10,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] string _name;
     [Tooltip("倒れた時用の絵")]
     [SerializeField] Sprite _downSprite;
+    [Tooltip("スピードアップ")]
+    [SerializeField] float _speedUp;
+    [Tooltip("スピードアップする数")]
+    [SerializeField] int _speedUpCount;
 
     /// <summary>俺君のオブジェクト</summary>
     GameObject _target;
@@ -19,6 +23,8 @@ public class Enemy : MonoBehaviour
     SpriteRenderer _spriteRenderer;
     /// <summary>アニメーター</summary>
     Animator _animator;
+    /// <summary>スポーンマネージャー</summary>
+    SpawnManager _spawnM;
 
     void Start()
     {
@@ -26,6 +32,12 @@ public class Enemy : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
+        _spawnM = GetComponentInParent<SpawnManager>();
+        if (_spawnM.Count() >= _speedUpCount)
+        {
+            _speed = _speed * _speedUp;
+            _speedUpCount += 5;
+        }
     }
 
     void Update()
@@ -38,16 +50,32 @@ public class Enemy : MonoBehaviour
     {
         if(collision.gameObject == _target)
         {
-            _animator.SetBool("Down",true);
+            {//テスト用
+                _animator.SetBool("Down", true);
+                _speed = 0;
+            }
+            
+            _spawnM.CountPuls();
         }
     }
 
     public void Hit()
     {
+        //カウント
+        _spawnM.CountPuls();
+        //スプライト変更
         _spriteRenderer.sprite = _downSprite;
+        //コライダーオフ
         BoxCollider2D collider = GetComponent<BoxCollider2D>();
         collider.enabled = false;
+        //スピード0
         _speed = 0;
+        //アニメーション
         _animator.SetBool("Down", true);
+    }
+
+    void Destroy()
+    {
+        Destroy(gameObject);
     }
 }
