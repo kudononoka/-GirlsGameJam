@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb6a1b107d1ec5c49839904845f992cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 100
+  _speed: 250
   _name: Target
   _downSprite: {fileID: 21300000, guid: 84f813cecf2005947accfc1afe7a5050, type: 3}
   _speedUp: 1.5

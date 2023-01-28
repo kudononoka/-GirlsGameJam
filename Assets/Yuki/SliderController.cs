@@ -14,6 +14,7 @@ public class SliderController : MonoBehaviour
     {
         _slider = GetComponent<Slider>();
         _playerCursor = _cursor.GetComponent<PlayerCursor>();
+        _slider.maxValue = _playerCursor.MaxPower;
     }
 
     // Update is called once per frame

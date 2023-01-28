@@ -29,6 +29,8 @@ public class SpawnManager : MonoBehaviour
         {
             _spawnTransform[i] = gameObject.transform.GetChild(i);
         }//子オブジェクトのポジションを配列に入れてる
+        int pos = Random.Range(0, gameObject.transform.childCount);
+        Instantiate(_enemy, _spawnTransform[pos]);
     }
 
     void Update()
