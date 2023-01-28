@@ -15,6 +15,7 @@ public class PlayerCursor : MonoBehaviour
     [SerializeField, Header("今の熱量")] float _power = 100;
     [SerializeField, Header("熱量の最大値")] float _maxPower = 100;
     [SerializeField, Header("ボムに使う熱量")] float _bombPower = 30;
+    [SerializeField] bool _emptyPower = false;
 
     Tweener _flash = default;
 
@@ -35,74 +36,95 @@ public class PlayerCursor : MonoBehaviour
         var worldPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10));
         _cursors.transform.position = worldPos;
 
-        if (_power > 0)
+        if (!_emptyPower)
         {
 
-            if (Input.GetMouseButtonDown(0)) //マウス左押したとき
+            if (_power > 0)
             {
-                //ボムカーソル消してビームカーソル赤にする
-                _bombCursor.color = Color.clear;
-                _beamCursor.color = Color.red;
-                _flash = _beamCursor.DOColor(new Color(1, 0.5f, 0), 1.5f).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
-                //コライダーオン
-                _beamCollider.enabled = true;
+
+                if (Input.GetMouseButtonDown(0)) //マウス左押したとき
+                {
+                    //ボムカーソル消してビームカーソル赤にする
+                    _bombCursor.color = Color.clear;
+                    _beamCursor.color = Color.red;
+                    _flash = _beamCursor.DOColor(new Color(1, 0.5f, 0), 1.0f).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
+                    //コライダーオン
+                    _beamCollider.enabled = true;
+                    _power--;
+                }
+                else if (Input.GetMouseButton(0)) //マウス左押しっぱなしのとき
+                {
+                    _power -= Time.deltaTime;
+                }
+                else if (Input.GetMouseButtonUp(0)) //マウス左離したとき
+                {
+                    //ビームカーソルの色戻す
+                    _beamCursor.color = Color.white;
+                    _flash.Kill();
+                    //コライダーオフ
+                    _beamCollider.enabled = false;
+                }
+                else
+                {
+                    RecoveryPower();
+
+                    if (Input.GetMouseButtonDown(1)) //マウス右押したとき
+                    {
+                        //ビームカーソル消してボムカーソル出す
+                        _beamCursor.color = Color.clear;
+                        _bombCursor.color = new Color(1, 0.1951895f, 0, 0.5882353f);
+                    }
+                    //else if (Input.GetMouseButton(1)) //マウス右押しっぱなしのとき
+                    //{
+
+                    //}
+                    else if (Input.GetMouseButtonUp(1)) //マウス右離したとき
+                    {
+
+                        if (_power >= _bombPower)
+                        {
+                            //熱量が足りてる時
+                            Instantiate(_bomber, worldPos, Quaternion.identity);
+                            _power -= _bombPower;
+                        }
+                        else
+                        {
+                            //熱量が足りなかったとき
+                        }
+
+                        //ボムカーソル消してビームカーソル出す
+                        _bombCursor.color = Color.clear;
+                        _beamCursor.color = Color.white;
+                    }
+
+                }
+
             }
-            else if (Input.GetMouseButton(0)) //マウス左押しっぱなしのとき
-            {
-                _power -= Time.deltaTime;
-            }
-            else if (Input.GetMouseButtonUp(0)) //マウス左離したとき
+            else //熱量がなくなったら
             {
                 //ビームカーソルの色戻す
                 _beamCursor.color = Color.white;
                 _flash.Kill();
                 //コライダーオフ
                 _beamCollider.enabled = false;
+                //なくなったよオン
+                _emptyPower = true;
             }
-            else
-            {
-                _power += Time.deltaTime;
-
-                if (Input.GetMouseButtonDown(1)) //マウス右押したとき
-                {
-                    //ビームカーソル消してボムカーソル出す
-                    _beamCursor.color = Color.clear;
-                    _bombCursor.color = Color.white;
-                }
-                //else if(Input.GetMouseButton(1)) //マウス右押しっぱなしのとき
-                //{
-
-                //}
-                else if (Input.GetMouseButtonUp(1)) //マウス右離したとき
-                {
-                    if (_power > _bombPower)
-                    {
-                        //熱量が足りてる時
-                        Instantiate(_bomber, worldPos, Quaternion.identity);
-                        _power -= _bombPower;
-                    }
-                    else
-                    {
-                        //熱量が足りなかったとき
-                    }
-
-                    //ボムカーソル消してビームカーソル出す
-                    _bombCursor.color = Color.clear;
-                    _beamCursor.color = Color.white;
-                }
-
-            }   
 
         }
         else
         {
-            _power += Time.deltaTime;
-            //ビームカーソルの色戻す
-            _beamCursor.color = Color.white;
-            //コライダーオフ
-            _beamCollider.enabled = false;
+            RecoveryPower();
+
+            //一定まで回復したらオフ
+            if(_power > _maxPower)
+            {
+                _emptyPower = false;
+            }
+
         }
 
+        //最大値を超えてたら最大値に書き換える
         if(_power > _maxPower)
         {
             _power = _maxPower;
@@ -110,4 +132,9 @@ public class PlayerCursor : MonoBehaviour
 
     }
 
+    /// <summary>熱量を回復する</summary>
+    private void RecoveryPower()
+    {
+        _power += Time.deltaTime * 1.8f;
+    }
 }
