@@ -13,7 +13,7 @@ public class SliderController : MonoBehaviour
     void Awake()
     {
         _slider = GetComponent<Slider>();
-        _playerCursor = GetComponent<PlayerCursor>();
+        _playerCursor = _cursor.GetComponent<PlayerCursor>();
     }
 
     // Update is called once per frame
