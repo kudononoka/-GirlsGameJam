@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField, Header("クリア時のシーン名")] string _clearSceneName;
     [SerializeField, Header("ゲームオーバー時のシーン名")] string _unclearSceneName;
+
+    public GameState State { get { return _state; } set { _state = value; }}
     // Start is called before the first frame update
     void Start()
     {
