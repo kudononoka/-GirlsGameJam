@@ -86,7 +86,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  _enemy: {fileID: 3056470970907636933, guid: fa63c712f05fe22479d67a4ba2521db2, type: 3}
+  _enemy: {fileID: 8117120944332101012, guid: fa63c712f05fe22479d67a4ba2521db2, type: 3}
   _intervalTime: 10
   _intervalLower: 3
   _updateCount: 5
