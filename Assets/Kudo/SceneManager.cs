@@ -17,7 +17,7 @@ public class SceneManager : MonoBehaviour
         
     }
 
-    void SceneChange(string sceneName)
+    public void SceneChange(string sceneName)
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }

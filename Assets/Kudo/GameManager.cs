@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     /// <summary>ゲームの状態</summary>
     GameState _state = GameState.Game;
 
-    
+    [SerializeField]SpawnManager _spawnManager;
 
     [SerializeField, Header("クリア時のシーン名")] string _clearSceneName;
     [SerializeField, Header("ゲームオーバー時のシーン名")] string _unclearSceneName;
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     {
         _timer -= Time.deltaTime;
         _timerText.text = _timer.ToString("0");
-        _scoreText.text = _score.ToString() + "人";
+        _scoreText.text = _spawnManager.Count().ToString() + "人";
 
         //タイムが0になったらゲームクリアの状態にする
         if (_timer <= 0)

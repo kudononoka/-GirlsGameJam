@@ -22,6 +22,9 @@ public class PlayerCursor : MonoBehaviour
     /// <summary>今の熱量</summary>
     public float Power { get => _power; }
 
+    /// <summary>熱量の最大値</summary>
+    public float MaxPower { get => _maxPower; }
+
     void Start()
     {
         //ボムカーソルだけ消しとく
@@ -54,7 +57,7 @@ public class PlayerCursor : MonoBehaviour
                 }
                 else if (Input.GetMouseButton(0)) //マウス左押しっぱなしのとき
                 {
-                    _power -= Time.deltaTime;
+                    _power -= Time.deltaTime * 2.0f;
                 }
                 else if (Input.GetMouseButtonUp(0)) //マウス左離したとき
                 {
@@ -135,6 +138,6 @@ public class PlayerCursor : MonoBehaviour
     /// <summary>熱量を回復する</summary>
     private void RecoveryPower()
     {
-        _power += Time.deltaTime * 1.8f;
+        _power += Time.deltaTime * 3.5f;
     }
 }

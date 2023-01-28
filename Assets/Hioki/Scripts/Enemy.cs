@@ -53,15 +53,15 @@ public class Enemy : MonoBehaviour
         if(collision.gameObject == _target)
         {
             //ステートをゲームオーバーにした
-            //GameManager gm = FindObjectOfType<GameManager>();
-            //gm.State = GameManager.GameState.UnClear;
+            GameManager gm = FindObjectOfType<GameManager>();
+            gm.State = GameManager.GameState.UnClear;
 
-            {//テスト用
-                _animator.SetBool("Down", true);
-                _speed = 0;
-                _spawnM.CountPuls();
-                _spriteRenderer.sprite = _downSprite;
-            }
+            //{//テスト用
+            //    _animator.SetBool("Down", true);
+            //    _speed = 0;
+            //    _spawnM.CountPuls();
+            //    _spriteRenderer.sprite = _downSprite;
+            //}
         }
     }
 
