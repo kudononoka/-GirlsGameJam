@@ -16,6 +16,8 @@ public class PlayerCursor : MonoBehaviour
     [SerializeField, Header("熱量の最大値")] float _maxPower = 100;
     [SerializeField, Header("ボムに使う熱量")] float _bombPower = 30;
     [SerializeField] bool _emptyPower = false;
+    [SerializeField, Header("熱量が減る係数")] float _powerDownNum = 3.0f;
+    [SerializeField, Header("熱量が回復する係数")] float _powerRecoverNum = 5.0f;
 
     Tweener _flash = default;
 
@@ -53,11 +55,11 @@ public class PlayerCursor : MonoBehaviour
                     _flash = _beamCursor.DOColor(new Color(1, 0.5f, 0), 1.0f).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
                     //コライダーオン
                     _beamCollider.enabled = true;
-                    _power--;
+                    DownPower();
                 }
                 else if (Input.GetMouseButton(0)) //マウス左押しっぱなしのとき
                 {
-                    _power -= Time.deltaTime * 2.0f;
+                    DownPower();
                 }
                 else if (Input.GetMouseButtonUp(0)) //マウス左離したとき
                 {
@@ -138,6 +140,12 @@ public class PlayerCursor : MonoBehaviour
     /// <summary>熱量を回復する</summary>
     private void RecoveryPower()
     {
-        _power += Time.deltaTime * 3.5f;
+        _power += Time.deltaTime * _powerRecoverNum;
+    }
+
+    /// <summary>熱量が減る</summary>
+    private void DownPower()
+    {
+        _power -= Time.deltaTime * _powerDownNum;
     }
 }
