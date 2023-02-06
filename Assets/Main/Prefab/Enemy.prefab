@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 250
   _name: Target
-  _downSprite: {fileID: 21300000, guid: 84f813cecf2005947accfc1afe7a5050, type: 3}
+  _downSprite: {fileID: 21300000, guid: 8a777d8f3db370b4393065bc77d23f3e, type: 3}
   _speedUp: 1.5
   _speedUpCount: 5
 --- !u!50 &6152107839068042649
