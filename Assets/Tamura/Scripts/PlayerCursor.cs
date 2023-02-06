@@ -52,7 +52,7 @@ public class PlayerCursor : MonoBehaviour
                     //ボムカーソル消してビームカーソル赤にする
                     _bombCursor.color = Color.clear;
                     _beamCursor.color = Color.red;
-                    _flash = _beamCursor.DOColor(new Color(1, 0.5f, 0), 1.0f).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo);
+                    _flash =_beamCursor.DOColor(new Color(1, 0.5f, 0), 1.0f).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo).SetAutoKill();
                     //コライダーオン
                     _beamCollider.enabled = true;
                     DownPower();
