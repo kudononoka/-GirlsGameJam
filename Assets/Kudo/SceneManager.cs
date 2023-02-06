@@ -19,6 +19,11 @@ public class SceneManager : MonoBehaviour
 
     public void SceneChange(string sceneName)
     {
+        if(sceneName == "Title")
+        {
+            SpawnManager._count = 0;
+        }
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+       
     }
 }

@@ -18,7 +18,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] int _countUp;
 
     /// <summary>人数カウント</summary>
-    [SerializeField]int _count;
+    [SerializeField] public static int _count;
     /// <summary>計測</summary>
     float _interval;
     
