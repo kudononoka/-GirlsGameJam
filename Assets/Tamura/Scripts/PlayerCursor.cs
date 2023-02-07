@@ -20,6 +20,7 @@ public class PlayerCursor : MonoBehaviour
     [SerializeField, Header("熱量が回復する係数")] float _powerRecoverNum = 5.0f;
     [SerializeField, Header("熱ビームの発射音")] AudioClip _beamburstAudioClip;
     [SerializeField, Header("ボムの爆発音")] AudioClip _bombAudioClip;
+    [SerializeField, Header("Sliderのアニメーター")] Animator _sliderAnim;
     Tweener _flash = default;
 
     /// <summary>今の熱量</summary>
@@ -125,15 +126,17 @@ public class PlayerCursor : MonoBehaviour
                 _beamCollider.enabled = false;
                 //なくなったよオン
                 _emptyPower = true;
+                //発射音停止
+                StartCoroutine(AudioStop());
             }
 
         }
         else
         {
             RecoveryPower();
-
+            
             //一定まで回復したらオフ
-            if(_power > _maxPower)
+            if (_power > _maxPower)
             {
                 _emptyPower = false;
             }
@@ -146,6 +149,7 @@ public class PlayerCursor : MonoBehaviour
             _power = _maxPower;
         }
 
+        _sliderAnim.SetBool("EmptyPower", _emptyPower);
     }
 
     /// <summary>熱量を回復する</summary>
@@ -163,7 +167,7 @@ public class PlayerCursor : MonoBehaviour
     private　IEnumerator AudioStop()
     {
         //GetButtonDownの時音が聞こえないため0.1秒待つ
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         //停止
         _audioSource.Stop();
     }

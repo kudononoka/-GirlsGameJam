@@ -22,7 +22,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField, Header("TimerTextUI")] Text _timerText;
     [SerializeField, Header("スコアTextUI")] Text _scoreText;
-
+    [SerializeField, Header("BGM")] AudioSource _audioSource;
+    [SerializeField] float _tempoUpTime;
+    bool _istempoUp;
     int _score = 0;
 
     public float TimeLimit { get { return _timeLimit; } set { _timeLimit = value; } }
@@ -30,12 +32,18 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _timer = _timeLimit;
+      
     }
 
     // Update is called once per frame
     void Update()
     {
         _timer -= Time.deltaTime;
+        if(_timer <= _tempoUpTime && !_istempoUp)
+        {
+            _audioSource.pitch += 0.2f;
+            _istempoUp = true;
+        }
         _timerText.text = _timer.ToString("0");
         _scoreText.text = _spawnManager.Count().ToString() + "人";
 

@@ -26,7 +26,7 @@ public class HelpCanvasActive : MonoBehaviour
     IEnumerator Wait()
     {
         _isCanvas = !_isCanvas;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         _helpCanvas.SetActive(_isCanvas);
     }
 }

@@ -119,6 +119,10 @@ MonoBehaviour:
   _maxPower: 30
   _bombPower: 0
   _emptyPower: 0
+  _powerDownNum: 3
+  _powerRecoverNum: 5
+  _beamburstAudioClip: {fileID: 0}
+  _bombAudioClip: {fileID: 0}
 --- !u!1 &184948665181175409
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 184948665181175409}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 184948664719697848}
@@ -232,7 +236,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 184948664719697848}
   m_RootOrder: 0

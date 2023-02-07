@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneManager : MonoBehaviour
 {
+    [SerializeField] AudioClip _audioClip;
+    [SerializeField] AudioSource _audioSource;
+    string _sceneName;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +22,22 @@ public class SceneManager : MonoBehaviour
 
     public void SceneChange(string sceneName)
     {
-        if(sceneName == "Title")
+        if (sceneName == "Title" || sceneName == "Game")
         {
+            _sceneName = sceneName;
             SpawnManager._count = 0;
+            StartCoroutine(Audio());
         }
-        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
-       
+        else
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+        }
+    }
+
+    IEnumerator Audio()
+    {
+        _audioSource.PlayOneShot(_audioClip);
+        yield return new WaitForSeconds(0.35f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(_sceneName);
     }
 }
