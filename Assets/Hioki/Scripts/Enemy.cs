@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
         if (_spawnM.Count() >= _speedUpCount)
         {
             _speed = _speed * _speedUp;
-            _speedUpCount += 5;
+            _speedUpCount += 4;
         }//スピード決めてる
     }
 
