@@ -18,9 +18,9 @@ public class PlayerCursor : MonoBehaviour
     [SerializeField] bool _emptyPower = false;
     [SerializeField, Header("熱量が減る係数")] float _powerDownNum = 3.0f;
     [SerializeField, Header("熱量が回復する係数")] float _powerRecoverNum = 5.0f;
-    [SerializeField, Header("熱ビームの発射音")] AudioClip _beamAudioClip;
-    [SerializeField, Header("熱ビームの発射音連射の時用")] AudioClip _beamburstAudioClip;
+    [SerializeField, Header("熱ビームの発射音")] AudioClip _beamburstAudioClip;
     [SerializeField, Header("ボムの爆発音")] AudioClip _bombAudioClip;
+    [SerializeField, Header("Sliderのアニメーター")] Animator _sliderAnim;
     Tweener _flash = default;
 
     /// <summary>今の熱量</summary>
@@ -59,8 +59,6 @@ public class PlayerCursor : MonoBehaviour
                     _bombCursor.color = Color.clear;
                     _beamCursor.color = Color.red;
                     _flash =_beamCursor.DOColor(new Color(1, 0.5f, 0), 1.0f).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo).SetAutoKill();
-                    //発射音
-                    _audioSource.PlayOneShot(_beamAudioClip);
                     //コライダーオン
                     _beamCollider.enabled = true;
                     DownPower();
@@ -73,6 +71,8 @@ public class PlayerCursor : MonoBehaviour
                 }
                 else if (Input.GetMouseButtonUp(0)) //マウス左離したとき
                 {
+                    //発射音が長いためマウスを離した時強制的に停止するようにした
+                    StartCoroutine(AudioStop());
                     //ビームカーソルの色戻す
                     _beamCursor.color = Color.white;
                     _flash.Kill();
@@ -126,15 +126,17 @@ public class PlayerCursor : MonoBehaviour
                 _beamCollider.enabled = false;
                 //なくなったよオン
                 _emptyPower = true;
+                //発射音停止
+                StartCoroutine(AudioStop());
             }
 
         }
         else
         {
             RecoveryPower();
-
+            
             //一定まで回復したらオフ
-            if(_power > _maxPower)
+            if (_power > _maxPower)
             {
                 _emptyPower = false;
             }
@@ -147,6 +149,7 @@ public class PlayerCursor : MonoBehaviour
             _power = _maxPower;
         }
 
+        _sliderAnim.SetBool("EmptyPower", _emptyPower);
     }
 
     /// <summary>熱量を回復する</summary>
@@ -159,5 +162,13 @@ public class PlayerCursor : MonoBehaviour
     private void DownPower()
     {
         _power -= Time.deltaTime * _powerDownNum;
+    }
+
+    private　IEnumerator AudioStop()
+    {
+        //GetButtonDownの時音が聞こえないため0.1秒待つ
+        yield return new WaitForSeconds(0.3f);
+        //停止
+        _audioSource.Stop();
     }
 }

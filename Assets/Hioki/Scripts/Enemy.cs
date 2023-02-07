@@ -79,6 +79,8 @@ public class Enemy : MonoBehaviour
         collider.enabled = false;
         //スピード0
         _speed = 0;
+        //倒れる時の音
+        _audioSource.PlayOneShot(_audioSource.clip);
         //アニメーション
         _animator.SetBool("Down", true);
     }
@@ -88,9 +90,5 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    /// <summary>AnimationEventで呼んでいます</summary>
-    void AudioPlayEvent()
-    {
-       _audioSource.PlayOneShot(_audioSource.clip);
-    }
+    
 }
