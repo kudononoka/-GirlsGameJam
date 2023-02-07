@@ -18,7 +18,9 @@ public class PlayerCursor : MonoBehaviour
     [SerializeField] bool _emptyPower = false;
     [SerializeField, Header("熱量が減る係数")] float _powerDownNum = 3.0f;
     [SerializeField, Header("熱量が回復する係数")] float _powerRecoverNum = 5.0f;
-
+    [SerializeField, Header("熱ビームの発射音")] AudioClip _beamAudioClip;
+    [SerializeField, Header("熱ビームの発射音連射の時用")] AudioClip _beamburstAudioClip;
+    [SerializeField, Header("ボムの爆発音")] AudioClip _bombAudioClip;
     Tweener _flash = default;
 
     /// <summary>今の熱量</summary>
@@ -27,8 +29,12 @@ public class PlayerCursor : MonoBehaviour
     /// <summary>熱量の最大値</summary>
     public float MaxPower { get => _maxPower; }
 
+    /// <summary>オーディオソースコンポーネント</summary>
+    AudioSource _audioSource;
+
     void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         //ボムカーソルだけ消しとく
         _bombCursor.color = Color.clear;
         _beamCollider.enabled = false;
@@ -53,12 +59,16 @@ public class PlayerCursor : MonoBehaviour
                     _bombCursor.color = Color.clear;
                     _beamCursor.color = Color.red;
                     _flash =_beamCursor.DOColor(new Color(1, 0.5f, 0), 1.0f).SetEase(Ease.Linear).SetLoops(-1, LoopType.Yoyo).SetAutoKill();
+                    //発射音
+                    _audioSource.PlayOneShot(_beamAudioClip);
                     //コライダーオン
                     _beamCollider.enabled = true;
                     DownPower();
                 }
                 else if (Input.GetMouseButton(0)) //マウス左押しっぱなしのとき
                 {
+                    //発射音・連射ver
+                    _audioSource.PlayOneShot(_beamburstAudioClip);
                     DownPower();
                 }
                 else if (Input.GetMouseButtonUp(0)) //マウス左離したとき
@@ -91,6 +101,8 @@ public class PlayerCursor : MonoBehaviour
                             //熱量が足りてる時
                             Instantiate(_bomber, worldPos, Quaternion.identity);
                             _power -= _bombPower;
+                            //ボム爆発音
+                            _audioSource.PlayOneShot(_bombAudioClip);
                         }
                         else
                         {

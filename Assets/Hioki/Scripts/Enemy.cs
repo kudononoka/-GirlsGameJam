@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour
     Animator _animator;
     /// <summary>スポーンマネージャー</summary>
     SpawnManager _spawnM;
+    /// <summary>オーディオソース/Enemyが倒れる時に使うSEが入っています</summary>
+    AudioSource _audioSource;
 
 
     void Start()
@@ -34,6 +36,7 @@ public class Enemy : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
         _spawnM = GetComponentInParent<SpawnManager>();
+        _audioSource = GetComponent<AudioSource>();
 
         if (_spawnM.Count() >= _speedUpCount)
         {
@@ -83,5 +86,11 @@ public class Enemy : MonoBehaviour
     void Destroy()
     {
         Destroy(gameObject);
+    }
+
+    /// <summary>AnimationEventで呼んでいます</summary>
+    void AudioPlayEvent()
+    {
+       _audioSource.PlayOneShot(_audioSource.clip);
     }
 }
