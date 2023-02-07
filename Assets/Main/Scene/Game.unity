@@ -515,9 +515,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.08, y: 0.86}
+  m_Offset: {x: 0.05, y: 1.05}
   serializedVersion: 2
-  m_Radius: 1.91
+  m_Radius: 1.52
 --- !u!1 &611857121
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,9 +749,53 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1055234744298144106, guid: f6e7b5eae4d6ab0418b32ac432a83bc8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 143.7974
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055234744298144106, guid: f6e7b5eae4d6ab0418b32ac432a83bc8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 135.237
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055234744298144106, guid: f6e7b5eae4d6ab0418b32ac432a83bc8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.0616
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055234744298144106, guid: f6e7b5eae4d6ab0418b32ac432a83bc8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 25.593388
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055234744299922912, guid: f6e7b5eae4d6ab0418b32ac432a83bc8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 144.4615
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055234744299922912, guid: f6e7b5eae4d6ab0418b32ac432a83bc8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 110.264
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055234744299922912, guid: f6e7b5eae4d6ab0418b32ac432a83bc8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -11.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055234744299922912, guid: f6e7b5eae4d6ab0418b32ac432a83bc8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055234744408996193, guid: f6e7b5eae4d6ab0418b32ac432a83bc8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 132.6709
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055234744408996193, guid: f6e7b5eae4d6ab0418b32ac432a83bc8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 132.6709
+      objectReference: {fileID: 0}
     - target: {fileID: 1055234744408996193, guid: f6e7b5eae4d6ab0418b32ac432a83bc8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -739
+      value: -754
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055234744408996193, guid: f6e7b5eae4d6ab0418b32ac432a83bc8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -331
       objectReference: {fileID: 0}
     - target: {fileID: 1055234745083786752, guid: f6e7b5eae4d6ab0418b32ac432a83bc8, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1116,11 +1160,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4361949415863797246, guid: 47871840e7342d2488440b5929eea3ee, type: 3}
       propertyPath: _countUp
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4361949415863797246, guid: 47871840e7342d2488440b5929eea3ee, type: 3}
       propertyPath: _updateCount
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4361949415863797246, guid: 47871840e7342d2488440b5929eea3ee, type: 3}
       propertyPath: _intervalTime
@@ -1128,7 +1172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4361949415863797246, guid: 47871840e7342d2488440b5929eea3ee, type: 3}
       propertyPath: _intervalLower
-      value: 0.3
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 4361949415863797246, guid: 47871840e7342d2488440b5929eea3ee, type: 3}
       propertyPath: _spawnTransform.Array.size
