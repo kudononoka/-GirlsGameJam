@@ -20,7 +20,13 @@ public class HelpCanvasActive : MonoBehaviour
 
     public void HelpCanvasActiveControl()
     {
+        StartCoroutine(Wait());
+    }
+
+    IEnumerator Wait()
+    {
         _isCanvas = !_isCanvas;
+        yield return new WaitForSeconds(0.3f);
         _helpCanvas.SetActive(_isCanvas);
     }
 }
