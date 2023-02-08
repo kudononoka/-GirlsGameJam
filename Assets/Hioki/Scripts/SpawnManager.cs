@@ -44,8 +44,8 @@ public class SpawnManager : MonoBehaviour
 
             if(_intervalTime <= 1)
             {
-                _intervalTime = 0.35f;
-            }//クールタイムがマイナスにならないように最小値（0.35）を入れた
+                _intervalTime = 0.53f;
+            }//クールタイムがマイナスにならないように最小値（0.53）を入れた
         }//クールタイムを減らす
 
         if(_interval >= _intervalTime)

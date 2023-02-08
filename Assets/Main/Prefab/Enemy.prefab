@@ -104,8 +104,8 @@ MonoBehaviour:
   _speed: 340
   _name: Target
   _downSprite: {fileID: 21300000, guid: 8a777d8f3db370b4393065bc77d23f3e, type: 3}
-  _speedUp: 1.2
-  _speedUpCount: 4
+  _speedUp: 1.1
+  _speedUpCount: 5
 --- !u!50 &6152107839068042649
 Rigidbody2D:
   serializedVersion: 4
