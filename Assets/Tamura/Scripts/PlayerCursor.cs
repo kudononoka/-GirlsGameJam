@@ -83,17 +83,17 @@ public class PlayerCursor : MonoBehaviour
                 {
                     RecoveryPower();
 
-                    if (Input.GetMouseButtonDown(1)) //マウス右押したとき
-                    {
-                        //ビームカーソル消してボムカーソル出す
-                        _beamCursor.color = Color.clear;
-                        _bombCursor.color = new Color(1, 0.1951895f, 0, 0.5882353f);
-                    }
+                    //if (Input.GetMouseButtonDown(1)) //マウス右押したとき
+                    //{
+                    //    //ビームカーソル消してボムカーソル出す
+                    //    _beamCursor.color = Color.clear;
+                    //    _bombCursor.color = new Color(1, 0.1951895f, 0, 0.5882353f);
+                    //}
                     //else if (Input.GetMouseButton(1)) //マウス右押しっぱなしのとき
                     //{
 
                     //}
-                    else if (Input.GetMouseButtonUp(1)) //マウス右離したとき
+                    if (Input.GetMouseButtonDown(1)) //マウス右離したとき
                     {
 
                         if (_power >= _bombPower)
