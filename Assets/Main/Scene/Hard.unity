@@ -907,8 +907,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 22.32, y: 1.2}
+  m_AnchoredPosition: {x: 0, y: -16}
+  m_SizeDelta: {x: 22.32, y: 1.199997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &932064362
 MonoBehaviour:
@@ -960,6 +960,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1646707270}
     m_Modifications:
+    - target: {fileID: 125982718703869028, guid: 71e3301164990ed4fbebb043a090bd01, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.099998474
+      objectReference: {fileID: 0}
     - target: {fileID: 552737679855633837, guid: 71e3301164990ed4fbebb043a090bd01, type: 3}
       propertyPath: m_Type
       value: 3
@@ -1195,6 +1199,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4361949415863797246, guid: 47871840e7342d2488440b5929eea3ee, type: 3}
+      propertyPath: _intervalMin
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4361949415863797246, guid: 47871840e7342d2488440b5929eea3ee, type: 3}
       propertyPath: _updateCount
       value: 3
       objectReference: {fileID: 0}
@@ -1204,7 +1212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4361949415863797246, guid: 47871840e7342d2488440b5929eea3ee, type: 3}
       propertyPath: _intervalLower
-      value: 0.1
+      value: 0.13
       objectReference: {fileID: 0}
     - target: {fileID: 4361949415863797246, guid: 47871840e7342d2488440b5929eea3ee, type: 3}
       propertyPath: _spawnTransform.Array.size
@@ -1576,12 +1584,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 184948665086484307, guid: d486d7fe622a5f047a96b3c95d8bed95, type: 3}
       propertyPath: _bombPower
-      value: 3
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 184948665086484307, guid: d486d7fe622a5f047a96b3c95d8bed95, type: 3}
       propertyPath: _sliderAnim
       value: 
       objectReference: {fileID: 1786475403}
+    - target: {fileID: 184948665086484307, guid: d486d7fe622a5f047a96b3c95d8bed95, type: 3}
+      propertyPath: _powerDownNum
+      value: 4.5
+      objectReference: {fileID: 0}
     - target: {fileID: 184948665086484307, guid: d486d7fe622a5f047a96b3c95d8bed95, type: 3}
       propertyPath: _beamAudioClip
       value: 

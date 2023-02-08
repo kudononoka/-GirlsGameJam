@@ -12,6 +12,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] float _intervalTime;
     [Tooltip("クールタイム減らす量")]
     [SerializeField] float _intervalLower;
+    [Tooltip("クールタイムの最小値")]
+    [SerializeField] float _intervalMin;
     [Tooltip("目標値")]
     [SerializeField] int _updateCount;
     [Tooltip("カウントアップ")]
@@ -44,7 +46,7 @@ public class SpawnManager : MonoBehaviour
 
             if(_intervalTime <= 1)
             {
-                _intervalTime = 0.53f;
+                _intervalTime = _intervalMin;
             }//クールタイムがマイナスにならないように最小値（0.53）を入れた
         }//クールタイムを減らす
 

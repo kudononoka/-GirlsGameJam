@@ -22,7 +22,7 @@ public class SceneManager : MonoBehaviour
 
     public void SceneChange(string sceneName)
     {
-        if (sceneName == "Title" || sceneName == "Game")
+        if (sceneName == "Title" || sceneName == "Normal" || sceneName == "Hard")
         {
             _sceneName = sceneName;
             SpawnManager._count = 0;
